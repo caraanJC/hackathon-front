@@ -1,0 +1,114 @@
+.navbar {
+    display: none;
+}
+
+.navbar__list {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.navbar__item {
+    padding: 5px 10px;
+}
+
+.navbar__link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.navbar__link.activeLink {
+    color: var(--ice);
+}
+
+.navbar__item:hover .navbar__link {
+    color: var(--ice);
+}
+
+.navbar__profile {
+    margin-left: 20px;
+}
+
+.navbar__profile button {
+    padding: 5px 10px;
+    background-color: var(--ice2);
+    border-radius: 2px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.navbar__profile img {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.navbar__sublist {
+    position: fixed;
+    top: 5rem;
+    right: 1rem;
+    background-color: var(--dark-bg);
+    display: none;
+    padding: 10px;
+}
+
+.navbar__sublist.active {
+    display: block;
+}
+
+.sublist__profile a {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.sublist__profile:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.sublist__profile img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50px;
+    margin-right: 10px;
+}
+
+.user__details {
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar__logout {
+    display: block;
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    font-size: 1rem;
+    text-align: center;
+    padding: 5px;
+}
+
+.navbar__logout:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+@media screen and (min-width: 768px) {
+    .navbar {
+        display: block;
+    }
+}
