@@ -15,6 +15,13 @@ const Profile = () => {
         closeUpload,
         changeFile,
         uploadFile,
+        openChangePassword,
+        closeChangePassword,
+        showPasswordModal,
+        userPassword,
+        inputChange,
+        message,
+        changePassword,
     } = ProfileLogic();
     return (
         <div className='profile'>
@@ -44,10 +51,10 @@ const Profile = () => {
                                 Change Avatar
                             </button>
                             {showUploadModal && (
-                                <div className='avatar__upload'>
+                                <div className='inner__card'>
                                     <button
                                         onClick={closeUpload}
-                                        className='upload__close'
+                                        className='inner__close'
                                     >
                                         <FaWindowClose />
                                     </button>
@@ -61,6 +68,72 @@ const Profile = () => {
                                         <input
                                             type='submit'
                                             value='Upload'
+                                            className='profile__button'
+                                        />
+                                    </form>
+                                </div>
+                            )}
+                        </div>
+                        <div className='profile__section'>
+                            <h2>Password</h2>
+                            <button
+                                className='profile__button'
+                                onClick={openChangePassword}
+                            >
+                                Change Password
+                            </button>
+                            {showPasswordModal && (
+                                <div className='inner__card'>
+                                    <button
+                                        onClick={closeChangePassword}
+                                        className='inner__close'
+                                    >
+                                        <FaWindowClose />
+                                    </button>
+                                    <h3>Change Avatar</h3>
+                                    <p className='inner__message'>{message}</p>
+                                    <form onSubmit={changePassword}>
+                                        <p>
+                                            <label htmlFor='oldPassword'>
+                                                Old Password:
+                                            </label>
+                                            <input
+                                                type='password'
+                                                id='oldPassword'
+                                                value={userPassword.oldPassword}
+                                                name='oldPassword'
+                                                onChange={inputChange}
+                                            />
+                                        </p>
+                                        <p>
+                                            <label htmlFor='newPassword'>
+                                                New Password:
+                                            </label>
+                                            <input
+                                                type='password'
+                                                id='newPassword'
+                                                value={userPassword.newPassword}
+                                                name='newPassword'
+                                                onChange={inputChange}
+                                            />
+                                        </p>
+                                        <p>
+                                            <label htmlFor='confirmNewPassword'>
+                                                Confirm Password:
+                                            </label>
+                                            <input
+                                                type='password'
+                                                id='confirmNewPassword'
+                                                value={
+                                                    userPassword.confirmPassword
+                                                }
+                                                name='confirmPassword'
+                                                onChange={inputChange}
+                                            />
+                                        </p>
+                                        <input
+                                            type='submit'
+                                            value='Save'
                                             className='profile__button'
                                         />
                                     </form>

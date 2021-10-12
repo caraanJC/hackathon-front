@@ -26,6 +26,7 @@
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     padding: 10px;
+    margin-bottom: 20px;
 }
 
 .profile__avatar {
@@ -43,9 +44,10 @@
     border-radius: 5px;
     font-size: 1.2rem;
     color: white;
+    cursor: pointer;
 }
 
-.avatar__upload {
+.inner__card {
     background-color: rgba(0, 0, 0, 0.2);
     margin-top: 10px;
     padding: 10px;
@@ -53,7 +55,7 @@
     border-radius: 5px;
 }
 
-.upload__close {
+.inner__close {
     position: absolute;
     top: 0.1rem;
     right: 0.1rem;
@@ -64,12 +66,18 @@
     cursor: pointer;
 }
 
-.avatar__upload h3 {
+.inner__card h3 {
     margin-bottom: 10px;
     font-size: 1.3rem;
     color: white;
 }
 
-.avatar__upload input[type='file'] {
+.inner__card input[type='file'] {
     margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.inner__message {
+    color: red;
+    font-size: 1.2rem;
 }
