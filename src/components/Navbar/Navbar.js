@@ -45,12 +45,21 @@ const Navbar = () => {
                             <button onClick={toggleLoginModal}>Login</button>
                         ) : (
                             <>
-                                <img
-                                    src={placeholder}
-                                    alt='profile avatar'
-                                    className='profile_image'
-                                    onClick={avatarClick}
-                                />
+                                {currentUser.avatar ? (
+                                    <img
+                                        src={currentUser.avatar}
+                                        alt='user avatar'
+                                        className='profile_image'
+                                        onClick={avatarClick}
+                                    />
+                                ) : (
+                                    <img
+                                        src={placeholder}
+                                        alt='user avatar'
+                                        className='profile_image'
+                                        onClick={avatarClick}
+                                    />
+                                )}
                             </>
                         )}
                     </div>

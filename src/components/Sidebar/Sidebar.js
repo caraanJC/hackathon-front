@@ -23,7 +23,7 @@ const Sidebar = () => {
         <>
             <div className={overlayClassNames} onClick={closeSidebar}></div>
             <nav className={sidebarClassNames} onClick={closeSidebar}>
-                <div className='profile'>
+                <div className='sidebar__profile'>
                     {!token ? (
                         <div className='sidebar__buttons'>
                             <button
@@ -41,11 +41,22 @@ const Sidebar = () => {
                         </div>
                     ) : (
                         <>
-                            <img
-                                src={placeholder}
-                                alt='profile avatar'
-                                className='profile_image'
-                            />
+                            {currentUser.avatar ? (
+                                <Link to='/profile'>
+                                    <img
+                                        src={currentUser.avatar}
+                                        alt='profile avatar'
+                                        className='profile_image'
+                                    />
+                                </Link>
+                            ) : (
+                                <img
+                                    src={placeholder}
+                                    alt='profile avatar'
+                                    className='profile_image'
+                                />
+                            )}
+
                             <h4>{currentUser.username}</h4>
                         </>
                     )}
