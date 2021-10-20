@@ -1,4 +1,12 @@
+import { useHistory } from 'react-router-dom';
+
 const Home = () => {
+    const history = useHistory();
+
+    const changeDirectory = (e) => {
+        history.push(`/${e.target.name}`);
+    };
+
     return (
         <div className='home'>
             <header>
@@ -11,8 +19,12 @@ const Home = () => {
                     school.
                 </p>
                 <div>
-                    <button>Shop Now</button>
-                    <button>Learn More</button>
+                    <button onClick={changeDirectory} name='shop'>
+                        Shop Now
+                    </button>
+                    <button onClick={changeDirectory} name='about'>
+                        Learn More
+                    </button>
                 </div>
             </header>
         </div>
