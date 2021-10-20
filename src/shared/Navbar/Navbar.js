@@ -5,7 +5,7 @@ import { FaChevronDown } from 'react-icons/fa';
 
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
+
 import UseComponentVisible from 'shared/UseComponentVisible';
 
 const Navbar = () => {
