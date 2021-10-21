@@ -9,53 +9,48 @@ import { Link } from 'react-router-dom';
 import UseComponentVisible from 'shared/UseComponentVisible';
 
 const Navbar = () => {
-    const token = useSelector((state) => state.token);
+  const token = useSelector((state) => state.token);
 
-    const openSublist = () => {
-        setIsComponentVisible(true);
-    };
+  const openSublist = () => {
+    setIsComponentVisible(true);
+  };
 
-    const { ref, isComponentVisible, setIsComponentVisible } =
-        UseComponentVisible(false);
+  const { ref, isComponentVisible, setIsComponentVisible } =
+    UseComponentVisible(false);
 
-    return (
-        <nav>
+  return (
+    <nav className="navbar">
+      <div className="navbar__container">
+        <Link to="/shop" className="navbar__logo">
+          <h1 className="text-accent-dark">Auxilium</h1>
+        </Link>
+        <div className="navbar__searchbar">
+          <input type="text" placeholder="Search..." />
+          <FiSearch />
+        </div>
+
+        <div className="navbar__options">
+          {token ? (
             <div>
-                <Link to='/shop'>Auxilium</Link>
+              <div>
+                <img src="" alt="Avatar" />
+              </div>
+              <p>Username</p>
             </div>
-            <div>
-                <input type='text' />
-                <FiSearch />
-            </div>
-            <div>
-                {token ? (
-                    <div>
-                        <div>
-                            <img src='' alt='Avatar' />
-                        </div>
-                        <p>Username</p>
-                    </div>
-                ) : (
-                    <button>login</button>
-                )}
-                <Link to='/cart'>
-                    <IoCart />
-                </Link>
-                <button onClick={openSublist}>
-                    <FaChevronDown />
-                </button>
-            </div>
-            <div ref={ref}>
-                {isComponentVisible && (
-                    <ul>
-                        <li>
-                            <Link to='/shop'>Logout</Link>
-                        </li>
-                    </ul>
-                )}
-            </div>
-        </nav>
-    );
+          ) : (
+            <button className="btn btn-accent">login</button>
+          )}
+          <Link to="/cart">
+            <IoCart />
+          </Link>
+          <FaChevronDown onClick={openSublist} />
+          <div className="logout" ref={ref}>
+            {isComponentVisible && <Link to="/shop">Logout</Link>}
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
 };
 
 export default Navbar;
