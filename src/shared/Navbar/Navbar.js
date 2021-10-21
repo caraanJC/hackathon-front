@@ -49,7 +49,7 @@ const Navbar = () => {
                             {isComponentVisible && (
                                 <>
                                     <Link to='/shop'>Change User Details</Link>
-                                    <Link to='/shop'>Logout</Link>
+                                    <Link to='/'>Logout</Link>
                                 </>
                             )}
                         </ul>
