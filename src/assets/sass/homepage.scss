@@ -20,6 +20,8 @@
 
         p {
             margin-bottom: 30px;
+            letter-spacing: 1px;
+            line-height: 1.5;
         }
 
         .buttons {
@@ -27,6 +29,9 @@
             flex-direction: column;
             gap: 10px;
             .btn {
+                text-transform: uppercase;
+                font-weight: bold;
+                letter-spacing: 1px;
                 width: 50%;
                 cursor: pointer;
             }

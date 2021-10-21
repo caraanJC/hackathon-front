@@ -71,6 +71,10 @@ a {
     background-color: transparent;
     border: 2px solid $accent-color;
     color: $accent-color;
+    &:hover {
+        color: white;
+        background-color: $accent-color;
+    }
 }
 
 @import 'homepage';
