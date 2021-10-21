@@ -1,24 +1,28 @@
-import axios from 'axios';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import Navbar from 'shared/Navbar';
-import Items from './Items';
 
 const Shop = () => {
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        axios.get('http://localhost:8000/api/items').then((res) => {
-            dispatch({ type: 'SET_ITEMS', payload: res.data });
-        });
-    }, [dispatch]);
-
-    return (
-        <div>
-            <Navbar />
-            <Items />
+  return (
+    <div className="shop">
+      <Navbar />
+      <div className="shop__container">
+        <div className="card">
+          <div className="card__head">
+            <img src="" alt="" />
+          </div>
+          <div className="card__body">
+            <div className="description">
+              <h3>Name</h3>
+              <h4>Php 300</h4>
+            </div>
+            <div className="buttons">
+              <div className="btn btn-accent">Add to Cart</div>
+              <div className="btn btn-border-accent">View</div>
+            </div>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Shop;
