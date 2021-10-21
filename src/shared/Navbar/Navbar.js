@@ -12,7 +12,7 @@ const Navbar = () => {
     const token = useSelector((state) => state.token);
 
     const openSublist = () => {
-        setIsComponentVisible(true);
+        setIsComponentVisible(!isComponentVisible);
     };
 
     const { ref, isComponentVisible, setIsComponentVisible } =
@@ -21,7 +21,7 @@ const Navbar = () => {
     return (
         <nav className='navbar'>
             <div className='navbar__container'>
-                <Link to='/shop' className='navbar__logo'>
+                <Link to='/' className='navbar__logo'>
                     <h1 className='text-accent-dark'>Auxilium</h1>
                 </Link>
                 <div className='navbar__searchbar'>
@@ -43,14 +43,16 @@ const Navbar = () => {
                     <Link to='/cart'>
                         <IoCart />
                     </Link>
-                    <FaChevronDown onClick={openSublist} />
-                    <div className='logout' ref={ref}>
-                        {isComponentVisible && (
-                            <>
-                                <Link to='/shop'>Change User Details</Link>
-                                <Link to='/shop'>Logout</Link>
-                            </>
-                        )}
+                    <div ref={ref}>
+                        <FaChevronDown onClick={openSublist} />
+                        <ul className='sublist'>
+                            {isComponentVisible && (
+                                <>
+                                    <Link to='/shop'>Change User Details</Link>
+                                    <Link to='/shop'>Logout</Link>
+                                </>
+                            )}
+                        </ul>
                     </div>
                 </div>
             </div>
