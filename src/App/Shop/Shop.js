@@ -1,9 +1,11 @@
 import Navbar from 'shared/Navbar';
+import AddProduct from 'shared/AddProduct/AddProduct';
 
 const Shop = () => {
   return (
     <div className="shop">
       <Navbar />
+      <AddProduct />
       <div className="shop__container">
         <div className="card">
           <div className="card__head">

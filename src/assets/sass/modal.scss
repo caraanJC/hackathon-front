@@ -1,0 +1,191 @@
+.modal {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  @include flexCenter;
+
+  &__container {
+    background-color: $white;
+    position: relative;
+
+    span {
+      text-align: end;
+      display: inline-block;
+      font-size: 1.2rem;
+      position: absolute;
+      right: 20px;
+      top: 7px;
+    }
+  }
+
+  .add,
+  .view {
+    width: 90%;
+    border-radius: 4px;
+    padding: 20px;
+  }
+
+  .view {
+    &__head {
+      margin-bottom: 30px;
+      .img {
+        width: 70%;
+        background-color: $accent-color;
+        aspect-ratio: 1/1;
+        margin: 0 auto 20px auto;
+      }
+
+      h3 {
+        font-weight: 500;
+        margin-bottom: 5px;
+      }
+
+      h4 {
+        font-weight: 400;
+        margin-bottom: 12px;
+      }
+    }
+  }
+
+  .add {
+    &__head {
+      text-align: center;
+      margin-bottom: 20px;
+      h3 {
+        font-weight: 500;
+        font-size: 1.4rem;
+      }
+    }
+
+    &__body {
+      .input {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+
+        label {
+          margin-bottom: 4px;
+        }
+      }
+
+      .btn {
+        margin-top: 40px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 425px) {
+  .modal {
+    .view {
+      width: 80%;
+
+      &__head {
+        .img {
+          width: 50%;
+        }
+      }
+    }
+
+    .add {
+      width: 60%;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .modal {
+    .view {
+      @include flexEvenly;
+      flex-wrap: wrap;
+      padding: 30px;
+      padding-top: 70px;
+
+      &__head {
+        width: 40%;
+        min-height: 350px;
+        margin: 0;
+
+        .img {
+          width: 80%;
+          margin: 0 0 30px 0;
+        }
+      }
+
+      &__body {
+        width: 55%;
+        min-height: 350px;
+      }
+    }
+
+    .add {
+      width: 400px;
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .modal {
+    .view {
+      &__head {
+        width: 35%;
+
+        h3 {
+          font-size: 1.6rem;
+        }
+        h4 {
+          font-size: 1.1rem;
+        }
+
+        .btn {
+          font-size: 1.1rem;
+          padding: 10px 20px;
+        }
+      }
+
+      &__body {
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .modal {
+    .view {
+      width: 1200px;
+
+      &__head,
+      &__body {
+        min-height: 450px;
+        padding: 20px;
+      }
+
+      &__head {
+        .img {
+          width: 65%;
+        }
+
+        h3 {
+          font-size: 2rem;
+        }
+
+        h4 {
+          font-size: 1.3rem;
+          margin-bottom: 30px;
+        }
+
+        .btn {
+          font-size: 1.3rem;
+        }
+      }
+
+      &__body {
+        p {
+          font-size: 1.2rem;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+}
