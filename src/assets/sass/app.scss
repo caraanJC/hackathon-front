@@ -26,6 +26,7 @@ $black: #000;
 h1,
 h2,
 h3,
+h4,
 .btn {
   font-family: 'Work sans', sans-serif;
 }
@@ -39,11 +40,11 @@ a {
 }
 
 .text-white {
-  color: $white;
+  color: $white !important;
 }
 
 .text-accent-dark {
-  color: $accent-dark;
+  color: $accent-dark !important;
 }
 
 .text-accent {
@@ -75,3 +76,4 @@ a {
 @import 'homepage';
 @import 'navbar';
 @import 'shop';
+@import 'login';
