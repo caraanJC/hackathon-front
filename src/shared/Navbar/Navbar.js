@@ -49,6 +49,9 @@ const Navbar = () => {
                 {isComponentVisible && (
                     <ul>
                         <li>
+                            <Link to='/shop'>Change User Details</Link>
+                        </li>
+                        <li>
                             <Link to='/shop'>Logout</Link>
                         </li>
                     </ul>
