@@ -14,6 +14,9 @@ const Item = ({ item }) => {
 
     const user = useSelector((state) => state.user);
     const token = useSelector((state) => state.token);
+
+    const cart = useSelector((state) => state.cart);
+
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -33,6 +36,12 @@ const Item = ({ item }) => {
         if (Object.keys(user).length === 0) {
             history.push('/login');
         } else {
+            if (
+                cart.find((cartItem) => cartItem.itemID === item._id)?.count ===
+                item.stock
+            ) {
+                return;
+            }
             axios
                 .put(
                     'http://localhost:8000/api/users/cart/addToCart',
