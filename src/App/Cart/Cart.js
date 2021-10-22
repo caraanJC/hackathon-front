@@ -1,72 +1,95 @@
-import Navbar from 'shared/Navbar';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import Navbar from '../../shared/Navbar';
+import Checkout from './Checkout';
+import Products from './Products';
 
 const Cart = () => {
+    const cart = useSelector((state) => state.cart);
+    const items = useSelector((state) => state.items);
+
+    const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
+
+    const openCheckout = () => {
+        if (
+            cart
+                .map((product) => product.count)
+                .reduce((prev, current) => {
+                    return prev + current;
+                }, 0) === 0
+        )
+            return;
+        setIsCheckoutOpen(true);
+    };
+    const closeCheckout = () => {
+        setIsCheckoutOpen(false);
+    };
+
     return (
         <>
             <Navbar />
             <div className='cart'>
-                <div className='products'>
-                    <div className='products__head'>
-                        <h2>Shopping cart</h2>
-                    </div>
-                    <div className='products__body'>
-                        <div className='product'>
-                            <div className='product__img'>
-                                <img src='' alt='' />
-                            </div>
-                            <div className='product__desc'>
-                                <h3>Name</h3>
-                                <p>Php300</p>
-                                <p>desc</p>
-                                <div className='qty'>
-                                    <button>-</button>
-                                    <input
-                                        type='number'
-                                        name=''
-                                        id=''
-                                        value='1'
-                                    />
-                                    <button>+</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='product'>
-                            <div className='product__img'>
-                                <img src='' alt='' />
-                            </div>
-                            <div className='product__desc'>
-                                <h3>Name</h3>
-                                <p>Php300</p>
-                                <p>desc</p>
-                                <div className='qty'>
-                                    <button>-</button>
-                                    <input
-                                        type='number'
-                                        name=''
-                                        id=''
-                                        value='1'
-                                    />
-                                    <button>+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <Products />
 
                 <div className='payment'>
-                    <div className='btn btn-accent'>Go to Checkout</div>
-                    <div className='btn btn-paypal'>
-                        <img src='' alt='' />
+                    <div className='btn btn-accent' onClick={openCheckout}>
+                        Go to Checkout
                     </div>
+                    {/* <div className='btn btn-border-accent'>Paypal</div> */}
 
                     <h3>Order Summary:</h3>
-                    <p>Subtotal: 300Php</p>
+
+                    <p>
+                        Subtotal: Php{' '}
+                        {cart
+                            .map(
+                                (product) =>
+                                    items.find(
+                                        (item) => item._id === product.itemID
+                                    ).price * product.count
+                            )
+                            .reduce((prev, current) => {
+                                return prev + current;
+                            }, 0)}
+                    </p>
                     <p>Shipping: free</p>
                     <hr />
 
-                    <h2>Total: 300Php</h2>
+                    <h2>
+                        Total: Php{' '}
+                        {cart
+                            .map(
+                                (product) =>
+                                    items.find(
+                                        (item) => item._id === product.itemID
+                                    ).price * product.count
+                            )
+                            .reduce((prev, current) => {
+                                return prev + current;
+                            }, 0)}
+                    </h2>
                 </div>
             </div>
+            {isCheckoutOpen && (
+                <Checkout
+                    closeCheckout={closeCheckout}
+                    price={cart
+                        .map(
+                            (product) =>
+                                items.find(
+                                    (item) => item._id === product.itemID
+                                ).price * product.count
+                        )
+                        .reduce((prev, current) => {
+                            return prev + current;
+                        }, 0)}
+                    noOfItems={cart
+                        .map((product) => product.count)
+                        .reduce((prev, current) => {
+                            return prev + current;
+                        }, 0)}
+                />
+            )}
         </>
     );
 };

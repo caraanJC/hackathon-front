@@ -6,9 +6,11 @@ const Items = () => {
     const searchWord = useSelector((state) => state.searchWord);
 
     return (
-        <div>
+        <div className='shop__container'>
             {items
-                .filter((item) => item.name.includes(searchWord))
+                .filter(
+                    (item) => item.name.includes(searchWord) && item.stock > 0
+                )
                 .map((item) => (
                     <Item item={item} key={item._id} />
                 ))}

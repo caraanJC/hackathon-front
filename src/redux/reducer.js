@@ -4,6 +4,7 @@ const initialState = {
     user: {},
     cart: [],
     searchWord: '',
+    isAddProductOpen: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -18,6 +19,8 @@ const reducer = (state = initialState, action) => {
             return { ...state, searchWord: action.payload };
         case 'SET_CART':
             return { ...state, cart: action.payload };
+        case 'SET_IS_ADD_PRODUCT_OPEN':
+            return { ...state, isAddProductOpen: action.payload };
         default:
             return state;
     }

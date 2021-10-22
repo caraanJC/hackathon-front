@@ -2,15 +2,17 @@
 import { FiSearch } from 'react-icons/fi';
 import { IoCart } from 'react-icons/io5';
 import { FaChevronDown } from 'react-icons/fa';
+import { AiFillShop } from 'react-icons/ai';
+import { BsCurrencyDollar } from 'react-icons/bs';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 // import { useEffect } from 'react';
 
-import placeholder from 'assets/images/placeholder.png';
+import placeholder from '../../assets/images/placeholder.png';
 
-import UseComponentVisible from 'shared/UseComponentVisible';
+import UseComponentVisible from '../../shared/UseComponentVisible';
 
 const Navbar = () => {
     const token = useSelector((state) => state.token);
@@ -36,6 +38,12 @@ const Navbar = () => {
     const logout = () => {
         dispatch({ type: 'SET_TOKEN', payload: '' });
         dispatch({ type: 'SET_USER', payload: {} });
+        dispatch({ type: 'SET_CART', payload: [] });
+        dispatch({ type: 'SET_SEARCHWORD', payload: '' });
+    };
+
+    const openAddProduct = () => {
+        dispatch({ type: 'SET_IS_ADD_PRODUCT_OPEN', payload: true });
     };
 
     const { ref, isComponentVisible, setIsComponentVisible } =
@@ -58,6 +66,14 @@ const Navbar = () => {
                 </div>
 
                 <div className='navbar__options'>
+                    {user.roles?.includes('admin') && (
+                        <button
+                            className='btn btn-accent'
+                            onClick={openAddProduct}
+                        >
+                            Add Product
+                        </button>
+                    )}
                     {token ? (
                         <>
                             <div className='user'>
@@ -69,6 +85,14 @@ const Navbar = () => {
 
                                 <p>{user.email?.split('@')[0]}</p>
                             </div>
+                            <Link to='/shop'>
+                                <AiFillShop />
+                            </Link>
+                            {user.roles.includes('admin') && (
+                                <Link to='/sales'>
+                                    <BsCurrencyDollar />
+                                </Link>
+                            )}
                             {user.roles.includes('user') && (
                                 <Link to='/cart'>
                                     <IoCart />{' '}
@@ -81,6 +105,7 @@ const Navbar = () => {
                                     </span>
                                 </Link>
                             )}
+
                             <div ref={ref}>
                                 <FaChevronDown onClick={openSublist} />
                                 <ul className='sublist'>

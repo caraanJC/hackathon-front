@@ -1,136 +1,139 @@
 .cart {
-  margin: 20px 0;
-  width: 90%;
-  margin-inline: auto;
-
-  .products {
-    margin-bottom: 50px;
-
-    &__head {
-      margin-bottom: 30px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid black;
-      h2 {
-        text-align: center;
-        font-size: 1.4rem;
-        font-weight: 600;
-      }
-    }
-
-    &__body {
-      .product {
-        display: flex;
-        gap: 30px;
-        width: 100%;
-        border: 1px solid darken($white, 10%);
-        padding: 10px;
-        margin: 10px 0;
-
-        &__img {
-          width: 30%;
-          aspect-ratio: 1/1;
-          background-color: $accent-color;
-        }
-
-        &__desc {
-          width: 65%;
-          .qty {
-            margin: 10px 0;
-            input,
-            button {
-              width: 25px;
-              height: 100%;
-              aspect-ratio: 1/1;
-              border: 1px solid darken($white, 10%);
-            }
-
-            button:nth-child(1) {
-              border-right: 0;
-            }
-
-            button:nth-child(3) {
-              border-left: 0;
-            }
-
-            input {
-              border-left: 0;
-              border-right: 0;
-              text-align: center;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .payment {
-    width: 60%;
+    margin: 20px 0;
+    width: 90%;
     margin-inline: auto;
-    background: darken($white, 12%);
-    padding: 20px;
-    border-radius: 4px;
-
-    .btn {
-      width: 90%;
-      margin: 20px auto;
-    }
-
-    .btn-paypal {
-      background: blue;
-    }
-
-    h2 {
-      font-weight: 500;
-      font-size: 1.3rem;
-    }
-
-    h3 {
-      margin-bottom: 12px;
-    }
-
-    p {
-      margin-bottom: 5px;
-    }
-
-    hr {
-      margin: 20px 0;
-    }
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .products .product .product__img {
-    width: 150px;
-  }
-
-  .product__desc {
-    max-width: 300px;
-  }
-}
-
-@media only screen and (min-width: 1024px) {
-  .cart {
-    @include flexEvenly;
-    flex-wrap: wrap;
 
     .products {
-      width: 60%;
+        margin-bottom: 50px;
 
-      h2 {
-        text-align: start;
-        font-size: 2rem;
-      }
+        &__head {
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid black;
+            h2 {
+                text-align: center;
+                font-size: 1.4rem;
+                font-weight: 600;
+            }
+        }
+
+        &__body {
+            .product {
+                display: flex;
+                gap: 30px;
+                width: 100%;
+                border: 1px solid darken($white, 10%);
+                padding: 10px;
+                margin: 10px 0;
+
+                &__img {
+                    width: 30%;
+                    aspect-ratio: 1/1;
+                    background-color: $accent-color;
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                &__desc {
+                    width: 65%;
+                    .qty {
+                        margin: 10px 0;
+                        input,
+                        button {
+                            width: 25px;
+                            height: 100%;
+                            aspect-ratio: 1/1;
+                            border: 1px solid darken($white, 10%);
+                        }
+
+                        button:nth-child(1) {
+                            border-right: 0;
+                        }
+
+                        button:nth-child(3) {
+                            border-left: 0;
+                        }
+
+                        input {
+                            border-left: 0;
+                            border-right: 0;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     .payment {
-      width: 35%;
+        width: 60%;
+        margin-inline: auto;
+        background: darken($white, 12%);
+        padding: 20px;
+        border-radius: 4px;
+
+        .btn {
+            width: 90%;
+            margin: 20px auto;
+        }
+
+        .btn-paypal {
+            background: blue;
+        }
+
+        h2 {
+            font-weight: 500;
+            font-size: 1.3rem;
+        }
+
+        h3 {
+            margin-bottom: 12px;
+        }
+
+        p {
+            margin-bottom: 5px;
+        }
+
+        hr {
+            margin: 20px 0;
+        }
     }
-  }
+}
+
+@media only screen and (min-width: 768px) {
+    .products .product .product__img {
+        width: 150px;
+    }
+
+    .product__desc {
+        max-width: 300px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .cart {
+        @include flexEvenly;
+        flex-wrap: wrap;
+
+        .products {
+            width: 60%;
+
+            h2 {
+                text-align: start;
+                font-size: 2rem;
+            }
+        }
+
+        .payment {
+            width: 35%;
+        }
+    }
 }
 
 @media only screen and (min-width: 1920px) {
-  .cart {
-    width: 1500px;
-    margin-inline: auto;
-  }
+    .cart {
+        width: 1500px;
+        margin-inline: auto;
+    }
 }

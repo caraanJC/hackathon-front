@@ -34,6 +34,7 @@ const Login = () => {
                             avatar: res.data.user.avatar,
                             email: res.data.user.email,
                             roles: res.data.user.roles,
+                            address: res.data.user.address,
                         },
                     });
                     if (res.data.user.roles.includes('user')) {

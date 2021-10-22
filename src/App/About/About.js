@@ -1,5 +1,5 @@
-import NavbarSecondary from 'shared/NavbarSecondary';
-import door from 'assets/images/door.jpg';
+import NavbarSecondary from '../../shared/NavbarSecondary';
+import door from '../../assets/images/door.jpg';
 import { Link, useHistory } from 'react-router-dom';
 
 import { GiChickenLeg, GiGraduateCap } from 'react-icons/gi';
@@ -11,9 +11,9 @@ import {
     AiFillLinkedin,
 } from 'react-icons/ai';
 
-import miguel from 'assets/images/miguel.jpg';
-import charles from 'assets/images/charles.jpg';
-import carlo from 'assets/images/carlo.jpg';
+import miguel from '../../assets/images/miguel.jpg';
+import charles from '../../assets/images/charles.jpg';
+import carlo from '../../assets/images/carlo.jpg';
 
 const About = () => {
     const history = useHistory();
