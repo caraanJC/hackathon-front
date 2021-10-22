@@ -59,6 +59,7 @@ const Login = () => {
     return (
         <div className='login'>
             <div className='login__container'>
+                <span className='close'>X</span>
                 <div className='login__head'>
                     <h4>Login to your account</h4>
                     <p>Create a new account</p>
