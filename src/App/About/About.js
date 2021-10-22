@@ -39,7 +39,7 @@ const About = () => {
                 <p>
                     For every purchase you make, 6% of the net profit goes to
                     the pool of funds dedictated to helping feed and educate
-                    children in the poor areas in the Philippines.
+                    children in poor areas in the Philippines.
                 </p>
                 <button onClick={shopButtonClick}>Shop Now</button>
             </div>
@@ -54,7 +54,7 @@ const About = () => {
                             It’s a known fact that food wins wars. Kids as well
                             need food to develop themselves into promising
                             adults. We at Auxilium help by providing kids with
-                            food at regular intervals.{' '}
+                            food at regular intervals.
                         </p>
                     </li>
                     <li className='allocation__item'>
