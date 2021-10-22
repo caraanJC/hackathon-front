@@ -2,6 +2,8 @@ const initialState = {
     items: [],
     token: '',
     user: {},
+    cart: [],
+    searchWord: '',
 };
 
 const reducer = (state = initialState, action) => {
@@ -12,6 +14,10 @@ const reducer = (state = initialState, action) => {
             return { ...state, token: action.payload };
         case 'SET_USER':
             return { ...state, user: action.payload };
+        case 'SET_SEARCHWORD':
+            return { ...state, searchWord: action.payload };
+        case 'SET_CART':
+            return { ...state, cart: action.payload };
         default:
             return state;
     }

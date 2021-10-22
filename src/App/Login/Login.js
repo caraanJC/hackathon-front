@@ -27,7 +27,21 @@ const Login = () => {
             .then((res) => {
                 if (res.data.success) {
                     dispatch({ type: 'SET_TOKEN', payload: res.data.token });
-                    dispatch({ type: 'SET_USER', payload: res.data.user });
+                    dispatch({
+                        type: 'SET_USER',
+                        payload: {
+                            _id: res.data.user._id,
+                            avatar: res.data.user.avatar,
+                            email: res.data.user.email,
+                            roles: res.data.user.roles,
+                        },
+                    });
+                    if (res.data.user.roles.includes('user')) {
+                        dispatch({
+                            type: 'SET_CART',
+                            payload: res.data.user.cart,
+                        });
+                    }
                     setLoginCredentials({
                         email: '',
                         password: '',

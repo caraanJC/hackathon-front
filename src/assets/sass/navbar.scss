@@ -72,6 +72,26 @@
             margin-left: 10px;
         }
 
+        a {
+            position: relative;
+            span {
+                position: absolute;
+                top: -5px;
+                right: -5px;
+                background-color: $accent-color;
+                border-radius: 100%;
+                width: 20px;
+                height: 20px;
+                font-size: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 500;
+                font-family: 'Roboto', sans-serif;
+                color: $accent-dark;
+            }
+        }
+
         .user {
             display: flex;
             align-items: center;

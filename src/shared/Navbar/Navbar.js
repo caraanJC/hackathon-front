@@ -15,6 +15,8 @@ import UseComponentVisible from 'shared/UseComponentVisible';
 const Navbar = () => {
     const token = useSelector((state) => state.token);
     const user = useSelector((state) => state.user);
+    const searchWord = useSelector((state) => state.searchWord);
+    const cart = useSelector((state) => state.cart);
 
     const history = useHistory();
     const dispatch = useDispatch();
@@ -25,6 +27,10 @@ const Navbar = () => {
 
     const routeToLoginPage = () => {
         history.push('/login');
+    };
+
+    const changeSearchWord = (e) => {
+        dispatch({ type: 'SET_SEARCHWORD', payload: e.target.value });
     };
 
     const logout = () => {
@@ -42,7 +48,12 @@ const Navbar = () => {
                     <h1 className='text-accent-dark'>Auxilium</h1>
                 </Link>
                 <div className='navbar__searchbar'>
-                    <input type='text' placeholder='Search...' />
+                    <input
+                        type='text'
+                        placeholder='Search Item...'
+                        value={searchWord}
+                        onChange={changeSearchWord}
+                    />
                     <FiSearch />
                 </div>
 
@@ -58,9 +69,18 @@ const Navbar = () => {
 
                                 <p>{user.email?.split('@')[0]}</p>
                             </div>
-                            <Link to='/cart'>
-                                <IoCart />
-                            </Link>
+                            {user.roles.includes('user') && (
+                                <Link to='/cart'>
+                                    <IoCart />{' '}
+                                    <span>
+                                        {cart
+                                            .map((item) => item.count)
+                                            .reduce((prev, current) => {
+                                                return prev + current;
+                                            }, 0)}
+                                    </span>
+                                </Link>
+                            )}
                             <div ref={ref}>
                                 <FaChevronDown onClick={openSublist} />
                                 <ul className='sublist'>
