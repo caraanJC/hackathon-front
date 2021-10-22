@@ -8,9 +8,8 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const Item = ({ item }) => {
-  const [isViewProductOpen, setIsViewProductOpen] = useState(false);
+    const [isViewProductOpen, setIsViewProductOpen] = useState(false);
 
-<<<<<<< HEAD
     const user = useSelector((state) => state.user);
     const token = useSelector((state) => state.token);
     const history = useHistory();
@@ -90,36 +89,16 @@ const Item = ({ item }) => {
                         </div>
                     </div>
                 </div>
-=======
-  const openViewProduct = () => {
-    setIsViewProductOpen(true);
-  };
-
-  return (
-    <>
-      <div className="card">
-        <div className="card__head">
-          <img src={item.image} alt={item.name} />
-        </div>
-        <div className="card__body">
-          <div className="description">
-            <h3>{item.name}</h3>
-            <h4>{item.price} Php</h4>
-          </div>
-          <div className="buttons">
-            <div className="btn btn-accent">Add to Cart</div>
-            <div className="btn btn-border-accent" onClick={openViewProduct}>
-              View
->>>>>>> 4c574fda2c73689f3c0218f331ff5811b53c9476
             </div>
-          </div>
-        </div>
-      </div>
-      {isViewProductOpen && (
-        <ViewProduct item={item} setIsViewProductOpen={setIsViewProductOpen} />
-      )}
-    </>
-  );
+
+            {isViewProductOpen && (
+                <ViewProduct
+                    item={item}
+                    setIsViewProductOpen={setIsViewProductOpen}
+                />
+            )}
+        </>
+    );
 };
 
 export default Item;
