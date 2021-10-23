@@ -1,0 +1,13 @@
+.user__avatar {
+    margin-top: 20px;
+    width: 150px !important;
+    height: 150px !important;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.change-button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

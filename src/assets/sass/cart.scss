@@ -29,7 +29,8 @@
                 &__img {
                     width: 30%;
                     aspect-ratio: 1/1;
-                    background-color: $accent-color;
+                    display: flex;
+                    align-items: center;
                     img {
                         width: 100%;
                     }
