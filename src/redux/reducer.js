@@ -5,6 +5,7 @@ const initialState = {
     cart: [],
     searchWord: '',
     isAddProductOpen: false,
+    sorter: (a, b) => parseFloat(a.price) - parseFloat(b.price),
 };
 
 const reducer = (state = initialState, action) => {
@@ -21,6 +22,8 @@ const reducer = (state = initialState, action) => {
             return { ...state, cart: action.payload };
         case 'SET_IS_ADD_PRODUCT_OPEN':
             return { ...state, isAddProductOpen: action.payload };
+        case 'SET_SORTER':
+            return { ...state, sorter: action.payload };
         default:
             return state;
     }

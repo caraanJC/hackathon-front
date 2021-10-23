@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import AddProduct from '../../shared/AddProduct/AddProduct';
 import Navbar from '../../shared/Navbar';
 import Items from './Items';
+import SortBy from './SortBy';
 
 const Shop = () => {
     const isAddProductOpen = useSelector((state) => state.isAddProductOpen);
@@ -35,6 +36,7 @@ const Shop = () => {
     return (
         <div className='shop'>
             <Navbar />
+            <SortBy />
             <Items />
             {isAddProductOpen && <AddProduct />}
         </div>
